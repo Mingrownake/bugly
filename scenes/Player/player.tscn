@@ -1,3 +1,21 @@
 [gd_scene format=3 uid="uid://eyy8rxa1ntjv"]
 
-[node name="Player" type="Node2D" unique_id=2041766939]
+[ext_resource type="Script" uid="uid://cyfjnx6jm3vae" path="res://scenes/Player/player.gd" id="1_1kbk7"]
+[ext_resource type="PackedScene" uid="uid://diwp7c5i6vpdj" path="res://scenes/Player/player_visual.tscn" id="1_cyojo"]
+[ext_resource type="PackedScene" uid="uid://0kd7xmw83irv" path="res://scenes/Player/player_input_reader.tscn" id="3_gqjuk"]
+[ext_resource type="PackedScene" uid="uid://s4c5cwmt7ywm" path="res://scenes/Player/player_mover.tscn" id="4_c4h5g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gqjuk"]
+size = Vector2(64, 66)
+
+[node name="Player" type="CharacterBody2D" unique_id=1308120925]
+script = ExtResource("1_1kbk7")
+
+[node name="PlayerVisual" parent="." unique_id=1000595400 instance=ExtResource("1_cyojo")]
+
+[node name="PlayerInputReader" parent="." unique_id=1580280137 instance=ExtResource("3_gqjuk")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1147542516]
+shape = SubResource("RectangleShape2D_gqjuk")
+
+[node name="PlayerMover" parent="." unique_id=423747112 instance=ExtResource("4_c4h5g")]
